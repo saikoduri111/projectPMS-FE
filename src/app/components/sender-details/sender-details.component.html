@@ -1,0 +1,31 @@
+<!-- multistep form -->
+<div id="msform">
+
+  
+  
+    <h1><b>Sender Details</b></h1>
+    <br>
+<input type="text" placeholder="Enter your account number" [(ngModel)]="senderAccountNumber" appOnlyNumber="14" (ngModelChange)="enableButton()"/>
+<button class="btn btn-success" (click)="getDetails()"  [disabled]="isDisabled"   >Get Details</button>
+<br>
+<br>
+<div *ngIf="isValidAcc; else display">
+<label for="">Name</label>    
+<input type="text" value={{apiData.accountHolderName}} disabled>
+<br>    
+<label for="">Balance</label>    
+<input type="text" value={{apiData.clearBalance}} disabled> 
+<br>
+<button (click)="reciverMethod()" class="btn btn-success">Next</button>
+
+</div>
+
+
+<ng-template #display>
+    <!-- <p>no details</p> -->
+</ng-template>
+  
+
+
+
+</div>
